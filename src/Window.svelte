@@ -5,7 +5,6 @@
   export let title;
   export let icon = '';
   export let resizable = true;
-  export let minimizable = true;
 
   let el = null;
   let screenWidth = 0;
@@ -54,23 +53,6 @@
     document.removeEventListener('mouseup', dragStop);
   }
 
-  const maximize = (e) => {
-    x = 4;
-    y = 4;
-    el.style.height = `${screenHeight - 40 - 4}px`;
-    el.style.width = `${screenWidth - 4}px`;
-    dispatch('maximize');
-  }
-
-  const minimize = (e) => {
-    minimized = true;
-    dispatch('minimize');
-  }
-
-  const close = (e) => {
-    dispatch('close');
-  }
-
   onMount(() => {
     x = (screenWidth - el.offsetWidth) / 2;
     y = (screenHeight - el.offsetHeight) / 2;
@@ -90,13 +72,12 @@
 
 <div
   class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] bg-windows-grey shadow-windows"
-  class:invisible={minimized}
   bind:this={el}
 >
-  <div class="absolute left-full w-4 h-full" on:click={() => console.log('click')}></div>
-  <div class="absolute right-full w-4 h-full" on:click={() => console.log('click')}></div>
-  <div class="absolute top-full w-full h-4" on:click={() => console.log('click')}></div>
-  <div class="absolute bottom-full w-full h-4" on:click={() => console.log('click')}></div>
+  <div class="absolute left-full w-4 h-full"></div>
+  <div class="absolute right-full w-4 h-full"></div>
+  <div class="absolute top-full w-full h-4"></div>
+  <div class="absolute bottom-full w-full h-4"></div>
   <!-- Title bar -->
   <div
     class="flex h-6 gap-2 items-center m-1 bg-windows-blue text-white px-2 select-none"
@@ -113,7 +94,7 @@
     <!-- Close button -->
     <button
       class="flex h-4 items-center justify-center text-black bg-windows-grey shadow-windows-thin active:shadow-windows-inverted-thin aspect-square"
-      on:click={close}
+      on:click={() => dispatch('close')}
     >
       <span class="text-sm">X</span>
     </button>

@@ -13,7 +13,6 @@
   <div class="flex flex-col flex-1 gap-4 p-2 items-center justify-center h-full w-96">
 
     {#if $page.status === 404}
-
       <div class="flex gap-2 items-center">
         <img src={icon} alt="error icon" />
 

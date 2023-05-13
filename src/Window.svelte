@@ -55,7 +55,7 @@
 
   onMount(() => {
     x = (screenWidth - el.offsetWidth) / 2;
-    y = (screenHeight - el.offsetHeight) / 2;
+    y = (screenHeight - el.offsetHeight - 40) / 2;
   });
 
   $: {

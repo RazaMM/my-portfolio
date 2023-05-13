@@ -2,8 +2,6 @@
   import {page} from '$app/stores';
   import Window from "../Window.svelte";
   import icon from "../icons/error.png";
-
-  console.log()
 </script>
 
 <Window

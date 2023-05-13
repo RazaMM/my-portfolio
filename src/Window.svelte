@@ -1,6 +1,5 @@
 <script>
   import {createEventDispatcher, onMount} from "svelte";
-  import {browser} from "$app/environment";
 
   export let title;
   export let icon = '';
@@ -10,8 +9,8 @@
   let screenWidth = 0;
   let screenHeight = 0;
 
-  let x = 0;
-  let y = 0;
+  let x = 'auto';
+  let y = 'auto';
   let isDragging = false;
   let startDragX = 0;
   let startDragY = 0;
@@ -23,6 +22,8 @@
   let startResizeY = 0;
 
   let minimized = false;
+
+  // max-width: ${screenWidth - x}px; max-height: ${screenHeight - y}px
 
   const dispatch = createEventDispatcher();
 
@@ -54,24 +55,17 @@
   }
 
   onMount(() => {
-    x = (screenWidth - el.offsetWidth) / 2;
-    y = (screenHeight - el.offsetHeight - 40) / 2;
+    x = Math.round((screenWidth - el.offsetWidth) / 2);
+    y = Math.round((screenHeight - el.offsetHeight - 40) / 2);
   });
-
-  $: {
-    if (browser && el) {
-      el.style.transform = `translate(${x}px, ${y}px)`;
-      el.style.maxWidth = `${screenWidth - x}px`;
-      el.style.maxHeight = `${screenHeight - y}px`;
-    }
-  }
 
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight}></svelte:window>
 
 <div
-  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] bg-windows-grey shadow-windows"
+  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-windows-grey shadow-windows"
+  style={`transform: translate(${x}px, ${y}px);`}
   bind:this={el}
 >
   <div class="absolute left-full w-4 h-full"></div>

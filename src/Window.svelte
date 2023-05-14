@@ -7,10 +7,11 @@
 
   const taskbarHeight = 40;
 
-  let el = null;
+  let el = null; // The window's main div
   let screenWidth = 0;
   let screenHeight = 0;
 
+  // Drag variables and state
   const minX = 4;
   const minY = 4;
   let x = minX;
@@ -18,6 +19,7 @@
   let startDragX = 0;
   let startDragY = 0;
 
+  // Resize variables and state
   const minWidth = 100;
   const minHeight = 100;
   let width = minWidth;
@@ -26,16 +28,13 @@
   let startResizeX = 0;
   let startResizeY = 0;
 
-  let minimized = false;
-
-  // max-width: ${screenWidth - x}px; max-height: ${screenHeight - y}px
-
   const dispatch = createEventDispatcher();
 
   const clamp = (value, min, max) => {
     return Math.min(Math.max(value, min), max);
   }
 
+  // Drag handlers
   const dragStart = (e) => {
     startDragX = e.pageX;
     startDragY = e.pageY;
@@ -58,6 +57,7 @@
     document.removeEventListener('mouseup', dragStop);
   }
 
+  // Resize handlers
   const resizeStart = (e) => {
     startResizeX = e.pageX;
     startResizeY = e.pageY;
@@ -86,7 +86,6 @@
         break;
     }
   }
-
   const resize = (e) => {
     const resizeX = e.pageX - startResizeX;
     const resizeY = e.pageY - startResizeY;
@@ -133,7 +132,6 @@
     startResizeX = e.pageX;
     startResizeY = e.pageY;
   }
-
   const resizeStop = (e) => {
     document.removeEventListener('mousemove', resize);
     document.removeEventListener('mouseup', resizeStop);
@@ -145,6 +143,7 @@
     document.body.classList.remove('cursor-w95-nesw-resize');
   }
 
+  // On mount, the window should be centered and be auto-sized
   onMount(() => {
     width = el.offsetWidth;
     height = el.offsetHeight;
@@ -163,6 +162,8 @@
   class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
   bind:this={el}
 >
+
+  <!-- Resize areas -->
   {#if resizable}
     <div
       class="absolute right-full w-2 h-full cursor-w95-ew-resize"
@@ -213,7 +214,7 @@
     ></div>
   {/if}
 
-  <!-- Title bar -->
+  <!-- Title bar and drag area -->
   <div
     class="flex h-6 gap-2 items-center m-1 bg-w95-blue text-white px-2 select-none"
     on:mousedown={dragStart}
@@ -239,5 +240,4 @@
   <div class="flex flex-col flex-1 m-1 mb-3 max-w-full max-h-full overflow-auto">
     <slot/>
   </div>
-
 </div>

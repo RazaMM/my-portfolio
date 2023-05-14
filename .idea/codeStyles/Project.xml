@@ -6,7 +6,12 @@
         <option name="TAB_SIZE" value="2" />
       </value>
     </option>
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="true" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <HTMLCodeStyleSettings>
+      <option name="HTML_ENFORCE_QUOTES" value="true" />
+      <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline" />
+      <option name="HTML_NEWLINE_AFTER_LAST_ATTRIBUTE" value="When multiline" />
+    </HTMLCodeStyleSettings>
     <TypeScriptCodeStyleSettings version="0">
       <option name="INDENT_CHAINED_CALLS" value="false" />
     </TypeScriptCodeStyleSettings>

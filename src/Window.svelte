@@ -58,23 +58,24 @@
     x = Math.round((screenWidth - el.offsetWidth) / 2);
     y = Math.round((screenHeight - el.offsetHeight - 40) / 2);
   });
-
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight}></svelte:window>
 
 <div
-  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-windows-grey shadow-windows"
+  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
   style={`transform: translate(${x}px, ${y}px);`}
   bind:this={el}
 >
-  <div class="absolute left-full w-4 h-full"></div>
-  <div class="absolute right-full w-4 h-full"></div>
-  <div class="absolute top-full w-full h-4"></div>
-  <div class="absolute bottom-full w-full h-4"></div>
+  {#if resizable}
+    <div class="absolute left-full w-2 h-full cursor-w95-ew-resize"></div>
+    <div class="absolute right-full w-2 h-full cursor-w95-ew-resize"></div>
+    <div class="absolute top-full w-full h-2 cursor-w95-ns-resize"></div>
+    <div class="absolute bottom-full w-full h-2 cursor-w95-ns-resize"></div>
+  {/if}
   <!-- Title bar -->
   <div
-    class="flex h-6 gap-2 items-center m-1 bg-windows-blue text-white px-2 select-none"
+    class="flex h-6 gap-2 items-center m-1 bg-w95-blue text-white px-2 select-none"
     on:mousedown={dragStart}
   >
     <!-- Icon -->
@@ -87,7 +88,7 @@
 
     <!-- Close button -->
     <button
-      class="flex h-4 items-center justify-center text-black bg-windows-grey shadow-windows-thin active:shadow-windows-inverted-thin aspect-square"
+      class="flex h-4 items-center justify-center text-black bg-w95-grey shadow-w95-thin active:shadow-w95-inverted-thin aspect-square"
       on:click={() => dispatch('close')}
     >
       <span class="text-sm">X</span>

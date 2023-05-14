@@ -9,8 +9,8 @@
 </script>
 
 <button
-  class="flex items-center gap-1 px-2 shadow-windows active:shadow-windows-inverted"
-  class:shadow-windows-inverted={forceActive}
+  class="flex items-center gap-1 px-2 shadow-w95 active:shadow-w95-inverted"
+  class:shadow-w95-inverted={forceActive}
   on:click={() => dispatch('click')}
 >
   {#if icon}

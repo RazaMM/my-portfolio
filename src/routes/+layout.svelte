@@ -11,7 +11,7 @@
   });
 </script>
 
-<main class="relative flex flex-col flex-1 bg-windows-cyan">
+<main class="relative flex flex-col flex-1 bg-w95-cyan">
   <slot></slot>
 </main>
 

@@ -7,10 +7,10 @@
   const {list, open, active} = getContext('programs');
 </script>
 
-<footer class="relative flex items-center w-full p-2 gap-6 bg-windows-grey shadow-windows select-none z-50">
+<footer class="relative flex items-center w-full p-2 gap-6 bg-w95-grey shadow-w95 select-none z-50">
   <StartMenu />
 
-  <!-- Open Windows -->
+  <!-- Open windows -->
   <div class="flex-1 flex items-center gap-6">
     {#each $open as program}
       <TaskbarButton text={program.name} />

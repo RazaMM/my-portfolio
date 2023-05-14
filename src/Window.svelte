@@ -65,6 +65,26 @@
 
     document.addEventListener('mousemove', resize);
     document.addEventListener('mouseup', resizeStop);
+
+    // Force the cursor to be the resize cursor
+    switch (resizeDir) {
+      case 'left':
+      case 'right':
+        document.body.classList.add('cursor-w95-ew-resize');
+        break;
+      case 'up':
+      case 'down':
+        document.body.classList.add('cursor-w95-ns-resize');
+        break;
+      case 'up-left':
+      case 'down-right':
+        document.body.classList.add('cursor-w95-nwse-resize');
+        break;
+      case 'up-right':
+      case 'down-left':
+        document.body.classList.add('cursor-w95-nesw-resize');
+        break;
+    }
   }
 
   const resize = (e) => {
@@ -117,6 +137,12 @@
   const resizeStop = (e) => {
     document.removeEventListener('mousemove', resize);
     document.removeEventListener('mouseup', resizeStop);
+
+    // Reset the cursor
+    document.body.classList.remove('cursor-w95-ew-resize');
+    document.body.classList.remove('cursor-w95-ns-resize');
+    document.body.classList.remove('cursor-w95-nwse-resize');
+    document.body.classList.remove('cursor-w95-nesw-resize');
   }
 
   onMount(() => {

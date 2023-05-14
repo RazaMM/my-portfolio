@@ -96,7 +96,7 @@
     let newY = y;
 
     if(resizeDir === 'left' || resizeDir === 'up-left' || resizeDir === 'down-left') {
-      newWidth = clamp(width - resizeX, minWidth, screenWidth - x);
+      newWidth = x === minX ? width : clamp(width - resizeX, minWidth, screenWidth - x);
       newX = (newWidth === minWidth ? x : clamp(x + resizeX, minX, screenWidth - minWidth - minX));
     }
 
@@ -105,7 +105,7 @@
     }
 
     if(resizeDir === 'up' || resizeDir === 'up-left' || resizeDir === 'up-right') {
-      newHeight = clamp(height - resizeY, minHeight, screenHeight - y - taskbarHeight);
+      newHeight = y === minY ? height : clamp(height - resizeY, minHeight, screenHeight - y - taskbarHeight);
       newY = (newHeight === minHeight ? y : clamp(y + resizeY, minY, screenHeight - minHeight - taskbarHeight - minY));
     }
 

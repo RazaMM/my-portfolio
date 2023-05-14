@@ -12,16 +12,16 @@
   let screenHeight = 0;
 
   // Drag variables and state
-  const minX = 4;
-  const minY = 4;
+  const minX = 5;
+  const minY = 6;
   let x = minX;
   let y = minY;
   let startDragX = 0;
   let startDragY = 0;
 
   // Resize variables and state
-  const minWidth = 100;
-  const minHeight = 100;
+  const minWidth = 160;
+  const minHeight = 80;
   let width = minWidth;
   let height = minHeight;
   let resizeDir = '';
@@ -90,44 +90,33 @@
     const resizeX = e.pageX - startResizeX;
     const resizeY = e.pageY - startResizeY;
 
-    // TODO: extract common logic into separate functions for each direction, and clean this mess up
-    // TODO: stop x/y position changing when min width/height is reached
-    switch (resizeDir) {
-      case 'left':
-        width = clamp(width - resizeX, minWidth, screenWidth - x);
-        x = clamp(x + resizeX, minX, screenWidth - minWidth - minX);
-        break;
-      case 'right':
-        width = clamp(width + resizeX, minWidth, screenWidth - x);
-        break;
-      case 'up':
-        height = clamp(height - resizeY, minHeight, screenHeight - y);
-        y = clamp(y + resizeY, minY, screenHeight - minHeight - taskbarHeight - minY);
-        break;
-      case 'down':
-        height = clamp(height + resizeY, minHeight, screenHeight - y - taskbarHeight);
-        break;
-      case 'up-left':
-        width = clamp(width - resizeX, minWidth, screenWidth - x);
-        x = clamp(x + resizeX, minX, screenWidth - minWidth - minX);
-        height = clamp(height - resizeY, minHeight, screenHeight - y - taskbarHeight);
-        y = clamp(y + resizeY, minY, screenHeight - minHeight - taskbarHeight - minY);
-        break;
-      case 'up-right':
-        width = clamp(width + resizeX, minWidth, screenWidth - x);
-        height = clamp(height - resizeY, minHeight, screenHeight - y - taskbarHeight);
-        y = clamp(y + resizeY, minY, screenHeight - minHeight - taskbarHeight - minY);
-        break;
-      case 'down-left':
-        width = clamp(width - resizeX, minWidth, screenWidth - x);
-        x = clamp(x + resizeX, minX, screenWidth - minWidth - minX);
-        height = clamp(height + resizeY, minHeight, screenHeight - y - taskbarHeight);
-        break;
-      case 'down-right':
-        width = clamp(width + resizeX, minWidth, screenWidth - x);
-        height = clamp(height + resizeY, minHeight, screenHeight - y - taskbarHeight);
-        break;
+    let newWidth = width;
+    let newHeight = height;
+    let newX = x;
+    let newY = y;
+
+    if(resizeDir === 'left' || resizeDir === 'up-left' || resizeDir === 'down-left') {
+      newWidth = clamp(width - resizeX, minWidth, screenWidth - x);
+      newX = (newWidth === minWidth ? x : clamp(x + resizeX, minX, screenWidth - minWidth - minX));
     }
+
+    if(resizeDir === 'right' || resizeDir === 'up-right' || resizeDir === 'down-right') {
+      newWidth = clamp(width + resizeX, minWidth, screenWidth - x - minX);
+    }
+
+    if(resizeDir === 'up' || resizeDir === 'up-left' || resizeDir === 'up-right') {
+      newHeight = clamp(height - resizeY, minHeight, screenHeight - y - taskbarHeight);
+      newY = (newHeight === minHeight ? y : clamp(y + resizeY, minY, screenHeight - minHeight - taskbarHeight - minY));
+    }
+
+    if(resizeDir === 'down' || resizeDir === 'down-left' || resizeDir === 'down-right') {
+      newHeight = clamp(height + resizeY, minHeight, screenHeight - y - taskbarHeight);
+    }
+
+    width = newWidth;
+    height = newHeight;
+    x = newX;
+    y = newY;
 
     startResizeX = e.pageX;
     startResizeY = e.pageY;
@@ -159,10 +148,9 @@
 <svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight}></svelte:window>
 
 <div
-  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[10rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
+  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[5rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
   bind:this={el}
 >
-
   <!-- Resize areas -->
   {#if resizable}
     <div

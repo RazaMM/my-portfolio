@@ -11,7 +11,12 @@
   <!-- Open windows -->
   <div class="flex-1 flex items-center gap-6">
     {#each $openPrograms as program}
-      <TaskbarButton icon={program.icon} text={program.name}/>
+      <TaskbarButton
+        icon={program.icon}
+        text={program.name}
+        active={$activeProgram === program}
+        on:click={() => activeProgram.set(program)}
+      />
     {/each}
   </div>
 

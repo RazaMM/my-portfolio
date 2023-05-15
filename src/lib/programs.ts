@@ -1,6 +1,8 @@
-import TestWindow from "../components/TestProgram.svelte";
 import {get, writable} from "svelte/store";
 import type {SvelteComponent} from "svelte";
+import TestWindow from "../components/TestProgram.svelte";
+import MyBio from "../components/MyBio.svelte";
+import bioIcon from "../icons/bio.png";
 
 export type Program = {
   name: string,
@@ -14,9 +16,10 @@ export const programList = {
     "name": "test",
     "component": TestWindow
   },
-  "test2": {
-    "name": "test2",
-    "component": TestWindow
+  "myBio": {
+    "name": "My Bio",
+    "icon": bioIcon,
+    "component": MyBio
   }
 }
 

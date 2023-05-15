@@ -1,7 +1,7 @@
 <script lang="ts">
   import {createEventDispatcher} from 'svelte';
 
-  export let forceActive = false;
+  export let active = false;
   export let text: string;
   export let icon: string | null = null;
   export let iconAlt: string | null = null;
@@ -11,7 +11,7 @@
 
 <button
   class="flex items-center gap-1 px-2 shadow-w95 active:shadow-w95-inverted"
-  class:shadow-w95-inverted={forceActive}
+  class:shadow-w95-inverted={active}
   on:click={() => dispatch('click')}
 >
   {#if icon}

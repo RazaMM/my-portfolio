@@ -4,6 +4,7 @@
   export let title;
   export let icon = '';
   export let resizable = true;
+  export let active = false;
 
   const taskbarHeight = 40;
 
@@ -149,7 +150,9 @@
 
 <div
   class="absolute z-20 flex flex-col min-w-[10rem] min-h-[5rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
+  class:z-30={active}
   bind:this={el}
+  on:mousedown={() => dispatch('mousedown')}
 >
   <!-- Resize areas -->
   {#if resizable}

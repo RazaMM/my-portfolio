@@ -135,10 +135,12 @@
 
   // On mount, the window should be centered and be auto-sized
   onMount(() => {
-    width = el.offsetWidth;
-    height = el.offsetHeight;
-    x = Math.round((screenWidth - el.offsetWidth) / 2);
-    y = Math.round((screenHeight - el.offsetHeight - taskbarHeight) / 2);
+    width = clamp(el.offsetWidth, minWidth, screenWidth - minX * 2);
+    height = clamp(el.offsetHeight, minHeight, screenHeight - taskbarHeight - minY * 2);
+    x = Math.max((screenWidth - el.offsetWidth) / 2, minX);
+    y = Math.max((screenHeight - el.offsetHeight - taskbarHeight) / 2, minY);
+
+    console.log(x, minX);
   });
 
   $: el && (el.style.width = `${width}px`);

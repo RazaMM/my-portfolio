@@ -1,14 +1,6 @@
 <script>
   import '../app.pcss';
-  import Taskbar from "../Taskbar.svelte";
-  import {setContext} from 'svelte';
-  import {active, list, open} from "../programs/programs.ts";
-
-  setContext('programs', {
-    list: list,
-    active: active,
-    open: open
-  });
+  import Taskbar from "../components/Taskbar.svelte";
 </script>
 
 <main class="relative flex flex-col flex-1 bg-w95-cyan">

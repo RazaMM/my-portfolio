@@ -1,6 +1,6 @@
 <script>
   import TaskbarButton from "./TaskbarButton.svelte";
-  import logo from "./icons/windows.png";
+  import logo from "../icons/windows.png";
 
   let startMenuOpen = false;
 </script>

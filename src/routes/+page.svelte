@@ -1,6 +1,6 @@
 <script lang="ts">
   import Window from "../components/Window.svelte";
-  import {activeProgram, openPrograms} from "../lib/programs.ts";
+  import {activeProgram, programs} from "../lib/programs.ts";
   import DesktopIcon from "../components/DesktopIcon.svelte";
 
   import MyBio from "../components/MyBio.svelte";
@@ -15,13 +15,13 @@
   <DesktopIcon program={{name: "My Bio", icon: MyBioIcon, component: MyBio }}/>
 </div>
 
-{#each $openPrograms as program (program.name)}
+{#each $programs as program (program.name)}
   <Window
     title={program.name}
     icon={program.icon}
     active={$activeProgram === program}
     on:close={() => {
-      openPrograms.remove(program);
+      programs.close(program);
     }}
     on:mousedown={() => {
       activeProgram.set(program);

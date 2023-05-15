@@ -11,10 +11,10 @@ export const activeProgram = writable(null as Program | null);
 
 const {subscribe, set, update} = writable([] as Program[]);
 
-export const openPrograms = {
+export const programs = {
   subscribe,
-  add: (program: Program) => {
-    const current = get(openPrograms);
+  open: (program: Program) => {
+    const current = get(programs);
 
     if (current.find(p => p.name === program.name)) {
       activeProgram.set(program);
@@ -23,8 +23,8 @@ export const openPrograms = {
 
     set([...current, program]);
   },
-  remove: (program: Program) => {
-    const current = get(openPrograms);
+  close: (program: Program) => {
+    const current = get(programs);
 
     if (get(activeProgram) === program) {
       activeProgram.set(null);

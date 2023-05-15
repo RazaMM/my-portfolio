@@ -25,6 +25,11 @@ export const openPrograms = {
   },
   remove: (program: Program) => {
     const current = get(openPrograms);
+
+    if (get(activeProgram) === program) {
+      activeProgram.set(null);
+    }
+
     set(current.filter(p => p.name !== program.name));
   }
 }

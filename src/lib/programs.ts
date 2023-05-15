@@ -1,6 +1,5 @@
 import {get, writable} from "svelte/store";
 import type {SvelteComponent} from "svelte";
-import TestWindow from "../components/TestProgram.svelte";
 import MyBio from "../components/MyBio.svelte";
 import bioIcon from "../icons/bio.png";
 
@@ -12,10 +11,6 @@ export type Program = {
 
 // A list of all the lib available mapped by name
 export const programList = {
-  "test": {
-    "name": "test",
-    "component": TestWindow
-  },
   "myBio": {
     "name": "My Bio",
     "icon": bioIcon,

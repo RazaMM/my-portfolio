@@ -95,21 +95,21 @@
     let newX = x;
     let newY = y;
 
-    if(resizeDir === 'left' || resizeDir === 'up-left' || resizeDir === 'down-left') {
+    if (resizeDir === 'left' || resizeDir === 'up-left' || resizeDir === 'down-left') {
       newWidth = x === minX ? width : clamp(width - resizeX, minWidth, screenWidth - x);
       newX = (newWidth === minWidth ? x : clamp(x + resizeX, minX, screenWidth - minWidth - minX));
     }
 
-    if(resizeDir === 'right' || resizeDir === 'up-right' || resizeDir === 'down-right') {
+    if (resizeDir === 'right' || resizeDir === 'up-right' || resizeDir === 'down-right') {
       newWidth = clamp(width + resizeX, minWidth, screenWidth - x - minX);
     }
 
-    if(resizeDir === 'up' || resizeDir === 'up-left' || resizeDir === 'up-right') {
+    if (resizeDir === 'up' || resizeDir === 'up-left' || resizeDir === 'up-right') {
       newHeight = y === minY ? height : clamp(height - resizeY, minHeight, screenHeight - y - taskbarHeight);
       newY = (newHeight === minHeight ? y : clamp(y + resizeY, minY, screenHeight - minHeight - taskbarHeight - minY));
     }
 
-    if(resizeDir === 'down' || resizeDir === 'down-left' || resizeDir === 'down-right') {
+    if (resizeDir === 'down' || resizeDir === 'down-left' || resizeDir === 'down-right') {
       newHeight = clamp(height + resizeY, minHeight, screenHeight - y - taskbarHeight);
     }
 
@@ -209,7 +209,7 @@
   >
     <!-- Icon -->
     {#if icon}
-      <img class="h-4" src={icon} aria-hidden="true" alt=""/>
+      <img class="h-4 rendering-pixelated" src={icon} aria-hidden="true" alt=""/>
     {/if}
 
     <!-- Title -->

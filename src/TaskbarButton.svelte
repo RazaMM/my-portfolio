@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import {createEventDispatcher} from 'svelte';
+
   export let forceActive = false;
   export let text: string;
   export let icon: string | null = null;
@@ -14,7 +15,7 @@
   on:click={() => dispatch('click')}
 >
   {#if icon}
-    <img src={icon} alt={iconAlt} class="h-[1.5em]"/>
+    <img src={icon} alt={iconAlt} class="h-6 rendering-pixelated"/>
   {/if}
   <span>{text}</span>
 </button>

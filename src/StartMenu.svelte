@@ -22,7 +22,9 @@
   class:invisible={!startMenuOpen}
 >
   <!-- Sideways Text -->
-  <span class="flex items-center w-8 py-2 text-xl text-white rotate-180 bg-w95-dark-grey vertical-writing-lr orientation-sideways tracking-widest">Portfolio 95</span>
+  <span
+    class="flex items-center w-8 py-2 text-xl text-white rotate-180 bg-w95-dark-grey vertical-writing-lr orientation-sideways tracking-widest"
+  >Portfolio 95</span>
 
   <!-- Start Menu Items -->
   <div class="flex-1"></div>

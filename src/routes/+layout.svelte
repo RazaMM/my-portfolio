@@ -1,8 +1,8 @@
 <script>
   import '../app.pcss';
   import Taskbar from "../Taskbar.svelte";
-  import { setContext } from 'svelte';
-  import {list, open, active} from "../programs/programs.ts";
+  import {setContext} from 'svelte';
+  import {active, list, open} from "../programs/programs.ts";
 
   setContext('programs', {
     list: list,
@@ -15,4 +15,4 @@
   <slot></slot>
 </main>
 
-<Taskbar />
+<Taskbar/>

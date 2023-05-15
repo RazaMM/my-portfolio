@@ -12,7 +12,7 @@
 
     {#if $page.status === 404}
       <div class="flex gap-2 items-center">
-        <img src={icon} alt="error icon" />
+        <img class="rendering-pixelated" src={icon} alt="error icon"/>
 
         <h1 class="text-lg text-center font-bold">
           You've ventured too far into the unknown and I can't find what you're looking for :(

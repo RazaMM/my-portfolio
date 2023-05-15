@@ -1,7 +1,5 @@
 import {get, writable} from "svelte/store";
 import type {SvelteComponent} from "svelte";
-import MyBio from "../components/MyBio.svelte";
-import bioIcon from "../icons/bio.png";
 
 export type Program = {
   name: string,
@@ -9,16 +7,8 @@ export type Program = {
   icon?: string
 }
 
-// A list of all the lib available mapped by name
-export const programList = {
-  "myBio": {
-    "name": "My Bio",
-    "icon": bioIcon,
-    "component": MyBio
-  }
-}
+export const activeProgram = writable(null as Program | null);
 
-// A list of the currently open lib
 const {subscribe, set, update} = writable([] as Program[]);
 
 export const openPrograms = {
@@ -27,6 +17,7 @@ export const openPrograms = {
     const current = get(openPrograms);
 
     if (current.find(p => p.name === program.name)) {
+      activeProgram.set(program);
       return;
     }
 
@@ -38,4 +29,3 @@ export const openPrograms = {
   }
 }
 
-export const activeProgram = writable(null as Program | null);

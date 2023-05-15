@@ -12,7 +12,7 @@
 </svelte:head>
 
 <div class="flex flex-col flex-wrap gap-4 w-fit max-h-[calc(100vh-40px)] p-2">
-  <DesktopIcon program={{name: "My Bio", icon: MyBioIcon, component: MyBio }}/>
+  <DesktopIcon program={{name: "My Bio", icon: MyBioIcon, resizeableWindow: false, component: MyBio }}/>
 </div>
 
 {#each $programs as program (program.name)}
@@ -20,6 +20,7 @@
     title={program.name}
     icon={program.icon}
     active={$activeProgram === program}
+    resizable={program.resizeableWindow}
     on:close={() => {
       programs.close(program);
     }}

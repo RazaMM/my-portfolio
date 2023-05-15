@@ -4,6 +4,7 @@ import type {SvelteComponent} from "svelte";
 export type Program = {
   name: string,
   component: SvelteComponent,
+  resizableWindow?: boolean,
   icon?: string
 }
 

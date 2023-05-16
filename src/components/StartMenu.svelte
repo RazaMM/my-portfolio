@@ -1,6 +1,10 @@
 <script>
   import TaskbarButton from "./TaskbarButton.svelte";
   import logo from "$icons/windows.png";
+  import StartMenuButton from "$components/StartMenuButton.svelte";
+  import ShutDownIcon from "$icons/shutdown.png";
+
+  import {openPrograms, programs} from "$lib/programs.ts";
 
   let startMenuOpen = false;
 </script>
@@ -8,7 +12,6 @@
 <!-- Start Menu Button -->
 <TaskbarButton
   icon={logo}
-  iconAlt="Windows 95 Logo"
   text="Start"
   active={startMenuOpen}
   on:click={() => {
@@ -27,5 +30,19 @@
   >Portfolio 95</span>
 
   <!-- Start Menu Items -->
-  <div class="flex-1"></div>
+  <div class="flex-1 flex flex-col justify-end">
+    {#each programs as program}
+      <StartMenuButton
+        text={program.name}
+        icon={program.icon}
+        on:click={() => {
+          openPrograms.open(program)
+        }}
+      />
+    {/each}
+
+    <hr class="h-2 shadow-windows w-full"/>
+
+    <StartMenuButton text="Shut Down..." icon={ShutDownIcon}/>
+  </div>
 </div>

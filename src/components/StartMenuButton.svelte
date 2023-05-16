@@ -1,7 +1,6 @@
 <script lang="ts">
   import {createEventDispatcher} from 'svelte';
 
-  export let active = false;
   export let text: string;
   export let icon: string | null = null;
 
@@ -9,12 +8,11 @@
 </script>
 
 <button
-  class="flex items-center gap-1 px-2 shadow-w95 active:shadow-w95-inverted"
-  class:shadow-w95-inverted={active}
+  class="flex items-center gap-1 p-1 w-full h-10 hover:bg-w95-blue hover:text-white focus:outline-none focus:bg-w95-blue focus:text-white"
   on:click={() => dispatch('click')}
 >
   {#if icon}
-    <img src={icon} alt="{text} icon" class="h-6 rendering-pixelated"/>
+    <img src={icon} class="h-full rendering-pixelated"/>
   {/if}
   <span>{text}</span>
 </button>

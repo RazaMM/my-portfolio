@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type {Program} from "../lib/programs";
-  import {programs} from "../lib/programs.ts";
+  import type {Program} from "$lib/programs";
+  import {programs} from "$lib/programs.ts";
 
   export let program: Program;
 </script>

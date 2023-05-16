@@ -2,7 +2,7 @@
   import TaskbarButton from "./TaskbarButton.svelte";
   import TaskbarClock from "./TaskbarClock.svelte";
   import StartMenu from "./StartMenu.svelte";
-  import {activeProgram, programs} from "../lib/programs.ts";
+  import {activeProgram, programs} from "$lib/programs.ts";
 </script>
 
 <footer class="relative flex items-center w-full p-2 gap-6 bg-w95-grey shadow-w95 select-none z-50">

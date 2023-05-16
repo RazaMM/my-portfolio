@@ -1,7 +1,7 @@
 <script>
   import {createEventDispatcher, onMount} from "svelte";
 
-  export let title;
+  export let name;
   export let icon = '';
   export let resizable = true;
   export let active = false;
@@ -214,11 +214,11 @@
   >
     <!-- Icon -->
     {#if icon}
-      <img class="h-4 rendering-pixelated" src={icon} aria-hidden="true" alt=""/>
+      <img class="h-4 rendering-pixelated" src={icon} alt="{name} icon"/>
     {/if}
 
     <!-- Title -->
-    <span class="block h-full overflow-hidden text-ellipsis whitespace-nowrap mr-auto">{title}</span>
+    <span class="block h-full overflow-hidden text-ellipsis whitespace-nowrap mr-auto">{name}</span>
 
     <!-- Close button -->
     <button

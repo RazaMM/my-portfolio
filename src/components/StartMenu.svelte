@@ -10,11 +10,11 @@
   icon={logo}
   iconAlt="Windows 95 Logo"
   text="Start"
+  active={startMenuOpen}
   on:click={() => {
     startMenuOpen = !startMenuOpen;
   }}
 />
-
 
 <!-- Start Menu Content-->
 <div

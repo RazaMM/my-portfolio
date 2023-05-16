@@ -4,12 +4,8 @@
   import icon from "../icons/error.png";
 </script>
 
-<Window
-  name={`${$page.status} ${$page.error.message}`}
-  resizable={false}
->
+<Window name={`${$page.status} ${$page.error.message}`} resizable={false}>
   <div class="flex flex-col flex-1 gap-4 p-2 items-center justify-center h-full w-96 max-h-full max-w-full">
-
     {#if $page.status === 404}
       <div class="flex gap-2 items-center">
         <img class="rendering-pixelated" src={icon} alt="error icon"/>
@@ -30,6 +26,5 @@
         An unexpected error occurred and that's all we know :(
       </h1>
     {/if}
-
   </div>
 </Window>

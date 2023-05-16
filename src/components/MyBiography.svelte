@@ -1,5 +1,6 @@
 <script>
   import me from '$img/me.png';
+  const age = new Date().getFullYear() - 1999;
 </script>
 
 <div
@@ -7,8 +8,7 @@
 >
   <img class="w-56 rounded-sm select-none" src={me} alt="Raza Mahmood wearing sunglasses"/>
   <h1 class="text-xl">Raza Mahmood</h1>
-  <p>I am a 5th year computer science co-op student at the University of Guelph who specializes in front end web
-    development.</p>
+  <p>I am a {age} year old software developer who specializes in front end web development.</p>
 
   <div class="flex flex-col">
     <a class="text-w95-blue" href="mailto:razammahmood@gmail.com">razammahmood@gmail.com</a>

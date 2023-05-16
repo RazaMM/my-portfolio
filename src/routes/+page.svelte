@@ -8,6 +8,9 @@
 
   import MyExperience from "$components/MyExperience.svelte";
   import MyExperienceIcon from "$icons/notepad.png";
+
+  import MyEducation from "$components/MyEducation.svelte";
+  import MyEducationIcon from "$icons/book.png";
 </script>
 
 <svelte:head>
@@ -29,6 +32,14 @@
       icon: MyExperienceIcon,
       resizeableWindow: true,
       component: MyExperience
+   }}
+  />
+  <DesktopIcon
+    program={{
+      name: "My Education",
+      icon: MyEducationIcon,
+      resizeableWindow: true,
+      component: MyEducation
    }}
   />
 </div>

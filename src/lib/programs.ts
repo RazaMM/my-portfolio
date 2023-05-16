@@ -16,9 +16,9 @@ export const programs = {
   subscribe,
   open: (program: Program) => {
     const current = get(programs);
+    activeProgram.set(program);
 
     if (current.find(p => p.name === program.name)) {
-      activeProgram.set(program);
       return;
     }
 

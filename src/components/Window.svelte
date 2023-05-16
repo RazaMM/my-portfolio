@@ -151,7 +151,7 @@
 <svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight}></svelte:window>
 
 <div
-  class="absolute z-20 flex flex-col min-w-[10rem] min-h-[5rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
+  class="absolute z-20 flex flex-col gap-1 p-1 min-w-[10rem] min-h-[5rem] max-h-full max-w-full translate-x-[calc(50vw_-_50%)] translate-y-[calc(50vh_-_50%-20px)] bg-w95-grey shadow-w95"
   class:z-30={active}
   bind:this={el}
   on:mousedown={() => dispatch('mousedown')}
@@ -209,7 +209,7 @@
 
   <!-- Title bar and drag area -->
   <div
-    class="flex h-6 gap-2 items-center m-1 bg-w95-blue text-white px-2 select-none"
+    class="flex h-6 gap-2 items-center bg-w95-blue text-white px-2 select-none"
     on:mousedown={dragStart}
   >
     <!-- Icon -->
@@ -230,7 +230,8 @@
   </div>
 
   <!-- Window Content -->
-  <div class="flex flex-col flex-1 m-1 mb-3 max-w-full max-h-full overflow-auto">
+  <div class="flex-1 w-full overflow-auto">
     <slot/>
   </div>
+
 </div>

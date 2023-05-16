@@ -5,7 +5,7 @@
 </script>
 
 <Window
-  title={`${$page.status} ${$page.error.message}`}
+  name={`${$page.status} ${$page.error.message}`}
   resizable={false}
 >
   <div class="flex flex-col flex-1 gap-4 p-2 items-center justify-center h-full w-96 max-h-full max-w-full">

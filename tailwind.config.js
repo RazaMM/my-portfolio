@@ -8,6 +8,9 @@ export default {
         'w95-blue': '#000080',
         'w95-grey': '#C6C6C6',
         'w95-dark-grey': '#808080',
+        'my-beige': '#FFFDE4',
+        'my-red': '#8E2C3B',
+        'my-gold': '#97845B',
       },
       boxShadow: {
         'w95': '-2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white, -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181,  2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black',

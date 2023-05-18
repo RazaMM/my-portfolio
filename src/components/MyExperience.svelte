@@ -58,7 +58,7 @@
   }
 </script>
 
-<div class="flex flex-col p-2 justify-between bg-white w-96 min-w-full min-h-full max-w-screen max-h-screen">
+<div class="flex flex-col p-2 justify-between bg-white w-96 min-w-full min-h-full max-w-full">
   <div class="flex flex-col">
     <span class="text-2xl">{experiences[idx].title}</span>
     <span>{experiences[idx].start} - {experiences[idx].end}</span>

@@ -21,6 +21,6 @@
   });
 </script>
 
-<div class="shadow-w95-inverted-thin px-3">
+<div class="shadow-w95-inverted-thin px-3 whitespace-nowrap">
   <span>{hours}:{minutes} {amOrPm}</span>
 </div>

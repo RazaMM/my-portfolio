@@ -139,8 +139,6 @@
     height = clamp(el.offsetHeight, minHeight, screenHeight - taskbarHeight - minY * 2);
     x = Math.max((screenWidth - el.offsetWidth) / 2, minX);
     y = Math.max((screenHeight - el.offsetHeight - taskbarHeight) / 2, minY);
-
-    console.log(x, minX);
   });
 
   $: el && (el.style.width = `${width}px`);

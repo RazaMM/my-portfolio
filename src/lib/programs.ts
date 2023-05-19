@@ -45,7 +45,7 @@ export const programs = [
 
 export const activeProgram = writable(null as Program | null);
 
-const { subscribe, set, update } = writable([] as Program[]);
+const { subscribe, set } = writable([] as Program[]);
 
 export const openPrograms = {
     subscribe,

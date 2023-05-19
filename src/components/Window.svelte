@@ -53,7 +53,7 @@
         startDragX = e.pageX;
         startDragY = e.pageY;
     }
-    const dragStop = (e) => {
+    const dragStop = () => {
         document.removeEventListener('mousemove', drag);
         document.removeEventListener('mouseup', dragStop);
     }
@@ -122,7 +122,7 @@
         startResizeX = e.pageX;
         startResizeY = e.pageY;
     }
-    const resizeStop = (e) => {
+    const resizeStop = () => {
         document.removeEventListener('mousemove', resize);
         document.removeEventListener('mouseup', resizeStop);
 

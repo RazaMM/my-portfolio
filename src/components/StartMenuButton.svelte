@@ -12,7 +12,7 @@
     on:click={() => dispatch('click')}
 >
     {#if icon}
-        <img src={icon} class="h-full rendering-pixelated"/>
+        <img src={icon} alt="{text} icon" class="h-full rendering-pixelated"/>
     {/if}
     <span>{text}</span>
 </button>

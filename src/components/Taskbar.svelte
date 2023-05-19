@@ -6,19 +6,19 @@
 </script>
 
 <footer class="relative flex items-center w-full p-2 gap-6 bg-w95-grey shadow-w95 select-none z-50">
-  <StartMenu/>
+    <StartMenu/>
 
-  <!-- Open windows -->
-  <div class="flex-1 flex items-center gap-6">
-    {#each $openPrograms as program}
-      <TaskbarButton
-        icon={program.icon}
-        text={program.name}
-        active={$activeProgram === program}
-        on:click={() => activeProgram.set(program)}
-      />
-    {/each}
-  </div>
+    <!-- Open windows -->
+    <div class="flex-1 flex items-center gap-6">
+        {#each $openPrograms as program}
+            <TaskbarButton
+                icon={program.icon}
+                text={program.name}
+                active={$activeProgram === program}
+                on:click={() => activeProgram.set(program)}
+            />
+        {/each}
+    </div>
 
-  <TaskbarClock/>
+    <TaskbarClock/>
 </footer>

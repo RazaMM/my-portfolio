@@ -42,6 +42,9 @@
 
         document.addEventListener('mousemove', drag);
         document.addEventListener('mouseup', dragStop);
+
+        // Disable text selection
+        document.body.classList.add('select-none');
     }
     const drag = (e) => {
         const maxX = screenWidth - el.offsetWidth - minX;
@@ -56,6 +59,9 @@
     const dragStop = () => {
         document.removeEventListener('mousemove', drag);
         document.removeEventListener('mouseup', dragStop);
+
+        // Re-enable text selection
+        document.body.classList.remove('select-none');
     }
 
     // Resize handlers
@@ -86,6 +92,9 @@
                 document.body.classList.add('cursor-w95-nesw-resize');
                 break;
         }
+
+        // Disable text selection
+        document.body.classList.add('select-none');
     }
     const resize = (e) => {
         const resizeX = e.pageX - startResizeX;
@@ -131,6 +140,9 @@
         document.body.classList.remove('cursor-w95-ns-resize');
         document.body.classList.remove('cursor-w95-nwse-resize');
         document.body.classList.remove('cursor-w95-nesw-resize');
+
+        // Re-enable text selection
+        document.body.classList.remove('select-none');
     }
 
     // On mount, the window should be centered and be auto-sized

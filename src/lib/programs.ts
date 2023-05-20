@@ -9,6 +9,9 @@ import MyEducationIcon from "$icons/book.png";
 import MyExperienceComponent from "$components/MyExperience.svelte";
 import MyExperienceIcon from "$icons/notepad.png";
 
+import MinesweeperComponent from "$components/Minesweeper.svelte";
+import MinesweeperIcon from "$icons/minesweeper.png";
+
 export type Program = {
     name: string,
     component: typeof MyBiographyComponent,
@@ -37,10 +40,18 @@ export const MyExperience: Program = {
     component: MyExperienceComponent
 }
 
+export const Minesweeper: Program = {
+    name: "Minesweeper",
+    icon: MinesweeperIcon,
+    resizeable: false,
+    component: MinesweeperComponent
+}
+
 export const programs = [
     MyBiography,
     MyEducation,
-    MyExperience
+    MyExperience,
+    Minesweeper
 ];
 
 export const activeProgram = writable(null as Program | null);

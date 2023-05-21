@@ -13,7 +13,7 @@
     </div>
     <div class="grid gap-1" style={`grid-template-columns: repeat(${width}, 1rem);`}>
         {#each Array(width * height) as _, i}
-           <button class="flex items-center justify-center w-4 h-4 shadow-w95-alt-thin active:shadow-w95-alt-thin-inverted"></button>
+           <button class="flex items-center justify-center w-4 h-4 shadow-w95-alt-thin active:shadow-w95-alt-inverted-thin"></button>
         {/each}
     </div>
 </div>

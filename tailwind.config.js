@@ -20,7 +20,7 @@ export default {
                 'w95-alt': '-3px -3px white, -3px 0 white, 0 -3px white, 3px 3px #818181, 0 3px #818181, 3px 0 #818181, -3px 3px #818181, -3px 3px white, 3px -3px white',
                 'w95-alt-inverted': '-3px -3px #818181, -3px 0 #818181, 0 -3px #818181, 3px 3px white, 0 3px white, 3px 0 white, -3px 3px white, -3px 3px #818181, 3px -3px #818181',
                 'w95-alt-thin': '-2px -2px white, -2px 0 white, 0 -2px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181, -2px 2px #818181, -2px 2px white, 2px -2px white',
-                'w95-alt-thin-inverted': '-2px -2px #818181, -2px 0 #818181, 0 -2px #818181, 2px 2px white, 0 2px white, 2px 0 white, -2px 2px white, -2px 2px #818181, 2px -2px #818181',
+                'w95-alt-inverted-thin': '-2px -2px #818181, -2px 0 #818181, 0 -2px #818181, 2px 2px white, 0 2px white, 2px 0 white, -2px 2px white, -2px 2px #818181, 2px -2px #818181',
             },
             fontFamily: {
                 'w95': ['w95', 'Arial', 'sans-serif'],

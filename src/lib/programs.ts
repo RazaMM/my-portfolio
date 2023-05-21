@@ -50,7 +50,8 @@ export const Minesweeper: Program = {
 export const programs = [
     MyBiography,
     MyEducation,
-    MyExperience
+    MyExperience,
+    Minesweeper
 ];
 
 export const activeProgram = writable(null as Program | null);

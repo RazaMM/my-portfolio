@@ -20,7 +20,6 @@
     const segmentOpacity = (digit, segment) => {
         return (digit & (1 << segment)) ? 1 : 0.25;
     }
-    $: console.log(digits);
 </script>
 
 <div class="flex h-[1em] w-fit bg-black">

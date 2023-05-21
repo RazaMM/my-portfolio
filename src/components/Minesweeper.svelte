@@ -5,7 +5,7 @@
     export let height = 9;
 </script>
 
-<div class="flex flex-col gap-2 p-2 shadow-w95-alt">
+<div class="flex flex-col gap-4 p-2 shadow-w95-alt">
     <div class="flex text-3xl justify-between items-center shadow-w95-alt-inverted gap-2 p-2">
         <SevenSegmentDisplay value="000" />
         <button class="w-6 h-6 shadow-w95-alt active:shadow-w95-alt-inverted"></button>

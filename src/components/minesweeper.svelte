@@ -1,5 +1,5 @@
 <script>
-    import SevenSegmentDisplay from "$components/SevenSegmentDisplay.svelte";
+    import SevenSegmentDisplay from "$components/seven-segment-display.svelte";
 
     export let width = 9;
     export let height = 9;

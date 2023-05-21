@@ -1,15 +1,15 @@
 import { get, writable } from "svelte/store";
 
-import MyBiographyComponent from "$components/MyBiography.svelte";
+import MyBiographyComponent from "$components/my-biography.svelte";
 import MyBiographyIcon from "$icons/bio.png";
 
-import MyEducationComponent from "$components/MyEducation.svelte";
+import MyEducationComponent from "$components/my-education.svelte";
 import MyEducationIcon from "$icons/book.png";
 
-import MyExperienceComponent from "$components/MyExperience.svelte";
+import MyExperienceComponent from "$components/my-experience.svelte";
 import MyExperienceIcon from "$icons/notepad.png";
 
-import MinesweeperComponent from "$components/Minesweeper.svelte";
+import MinesweeperComponent from "$components/minesweeper.svelte";
 import MinesweeperIcon from "$icons/minesweeper.png";
 
 export type Program = {

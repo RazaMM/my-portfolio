@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Window from "$components/Window.svelte";
+    import Window from "$components/window.svelte";
     import { activeProgram, openPrograms, programs } from "$lib/programs.ts";
 </script>
 

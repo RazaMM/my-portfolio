@@ -1,6 +1,6 @@
 <script>
     import {page} from '$app/stores';
-    import Window from "../components/Window.svelte";
+    import Window from "$components/window.svelte";
     import icon from "../icons/error.png";
 </script>
 

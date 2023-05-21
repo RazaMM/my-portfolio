@@ -219,7 +219,9 @@
 
     <!-- Title bar and drag area -->
     <div
-        class="flex h-6 gap-2 items-center bg-w95-blue text-white px-2 select-none"
+        class="flex h-6 gap-2 items-center text-white px-2 select-none"
+        class:bg-w95-dark-grey={!active}
+        class:bg-w95-blue={active}
         on:mousedown={dragStart}
     >
         <!-- Icon -->

@@ -4,7 +4,7 @@
     import icon from "../icons/error.png";
 </script>
 
-<Window name={`${$page.status} ${$page.error.message}`} resizable={false}>
+<Window name={`${$page.status} ${$page.error.message}`} resizable={false} active={true}>
     <div class="flex flex-col flex-1 gap-4 p-2 items-center justify-center h-full w-96 max-h-full max-w-full">
         {#if $page.status === 404}
             <div class="flex gap-2 items-center">

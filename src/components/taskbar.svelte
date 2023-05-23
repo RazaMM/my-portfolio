@@ -30,7 +30,13 @@
 
 <footer class="relative flex items-center w-full p-2 gap-6 bg-w95-grey shadow-w95 select-none z-50">
     <!-- Start Menu -->
-    <div use:focusWithin on:focusoutside={() => { startMenuOpen = false }} tabindex="-1">
+    <div
+        use:focusWithin
+        on:focusoutside={() => {
+            startMenuOpen = false;
+        }}
+        tabindex="-1"
+    >
         <!-- Start Menu Button -->
         <button
             class="flex items-center gap-1 px-2 shadow-w95 whitespace-nowrap active:shadow-w95-inverted"

@@ -15,7 +15,7 @@ import MinesweeperIcon from "$icons/minesweeper.png";
 
 export type Program = {
     name: string;
-    component: typeof SvelteComponent;
+    component: any;
     resizable?: boolean;
     icon?: string;
 };

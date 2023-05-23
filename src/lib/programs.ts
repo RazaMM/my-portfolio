@@ -1,4 +1,5 @@
 import { get, writable } from "svelte/store";
+import type { SvelteComponent } from "svelte";
 
 import MyBiographyComponent from "$components/my-biography.svelte";
 import MyBiographyIcon from "$icons/bio.png";
@@ -13,45 +14,41 @@ import MinesweeperComponent from "$components/minesweeper.svelte";
 import MinesweeperIcon from "$icons/minesweeper.png";
 
 export type Program = {
-    name: string,
-    component: typeof MyBiographyComponent,
-    resizeable?: boolean,
-    icon?: string
-}
+    name: string;
+    component: typeof SvelteComponent;
+    resizable?: boolean;
+    icon?: string;
+};
 
 export const MyBiography: Program = {
     name: "My Biography",
     icon: MyBiographyIcon,
-    resizeable: true,
-    component: MyBiographyComponent
-}
+    resizable: true,
+    component: MyBiographyComponent,
+};
 
 export const MyEducation: Program = {
     name: "My Education",
     icon: MyEducationIcon,
-    resizeable: true,
-    component: MyEducationComponent
-}
+    resizable: true,
+    component: MyEducationComponent,
+};
 
 export const MyExperience: Program = {
     name: "My Experience",
     icon: MyExperienceIcon,
-    resizeable: true,
-    component: MyExperienceComponent
-}
+    resizable: true,
+    component: MyExperienceComponent,
+};
 
 export const Minesweeper: Program = {
     name: "Minesweeper",
     icon: MinesweeperIcon,
-    resizeable: false,
-    component: MinesweeperComponent
-}
+    resizable: false,
+    component: MinesweeperComponent,
+};
 
-export const programs = [
-    MyBiography,
-    MyEducation,
-    MyExperience
-];
+export const programs = [MyBiography, MyEducation, MyExperience];
 
 export const activeProgram = writable(null as Program | null);
 
@@ -63,7 +60,7 @@ export const openPrograms = {
         const current = get(openPrograms);
         activeProgram.set(program);
 
-        if (current.find(p => p.name === program.name)) {
+        if (current.find((p) => p.name === program.name)) {
             return;
         }
 
@@ -76,6 +73,6 @@ export const openPrograms = {
             activeProgram.set(null);
         }
 
-        set(current.filter(p => p.name !== program.name));
-    }
-}
+        set(current.filter((p) => p.name !== program.name));
+    },
+};

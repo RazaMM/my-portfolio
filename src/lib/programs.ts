@@ -1,51 +1,51 @@
-import { get, writable } from "svelte/store";
-import type { SvelteComponent } from "svelte";
+import { get, writable } from 'svelte/store';
+import type { SvelteComponent } from 'svelte';
 
-import MyBiographyComponent from "$components/my-biography.svelte";
-import MyBiographyIcon from "$icons/bio.png";
+import MyBiographyComponent from '$components/my-biography.svelte';
+import MyBiographyIcon from '$icons/bio.png';
 
-import MyEducationComponent from "$components/my-education.svelte";
-import MyEducationIcon from "$icons/book.png";
+import MyEducationComponent from '$components/my-education.svelte';
+import MyEducationIcon from '$icons/book.png';
 
-import MyExperienceComponent from "$components/my-experience.svelte";
-import MyExperienceIcon from "$icons/notepad.png";
+import MyExperienceComponent from '$components/my-experience.svelte';
+import MyExperienceIcon from '$icons/notepad.png';
 
-import MinesweeperComponent from "$components/minesweeper.svelte";
-import MinesweeperIcon from "$icons/minesweeper.png";
+import MinesweeperComponent from '$components/minesweeper.svelte';
+import MinesweeperIcon from '$icons/minesweeper.png';
 
 export type Program = {
-    name: string;
-    component: any;
-    resizable?: boolean;
-    icon?: string;
+  name: string;
+  component: any;
+  resizable?: boolean;
+  icon?: string;
 };
 
 export const MyBiography: Program = {
-    name: "My Biography",
-    icon: MyBiographyIcon,
-    resizable: true,
-    component: MyBiographyComponent,
+  name: 'My Biography',
+  icon: MyBiographyIcon,
+  resizable: true,
+  component: MyBiographyComponent
 };
 
 export const MyEducation: Program = {
-    name: "My Education",
-    icon: MyEducationIcon,
-    resizable: true,
-    component: MyEducationComponent,
+  name: 'My Education',
+  icon: MyEducationIcon,
+  resizable: true,
+  component: MyEducationComponent
 };
 
 export const MyExperience: Program = {
-    name: "My Experience",
-    icon: MyExperienceIcon,
-    resizable: true,
-    component: MyExperienceComponent,
+  name: 'My Experience',
+  icon: MyExperienceIcon,
+  resizable: true,
+  component: MyExperienceComponent
 };
 
 export const Minesweeper: Program = {
-    name: "Minesweeper",
-    icon: MinesweeperIcon,
-    resizable: false,
-    component: MinesweeperComponent,
+  name: 'Minesweeper',
+  icon: MinesweeperIcon,
+  resizable: false,
+  component: MinesweeperComponent
 };
 
 export const programs = [MyBiography, MyEducation, MyExperience];
@@ -55,24 +55,24 @@ export const activeProgram = writable(null as Program | null);
 const { subscribe, set } = writable([] as Program[]);
 
 export const openPrograms = {
-    subscribe,
-    open: (program: Program) => {
-        const current = get(openPrograms);
-        activeProgram.set(program);
+  subscribe,
+  open: (program: Program) => {
+    const current = get(openPrograms);
+    activeProgram.set(program);
 
-        if (current.find((p) => p.name === program.name)) {
-            return;
-        }
+    if (current.find((p) => p.name === program.name)) {
+      return;
+    }
 
-        set([...current, program]);
-    },
-    close: (program: Program) => {
-        const current = get(openPrograms);
+    set([...current, program]);
+  },
+  close: (program: Program) => {
+    const current = get(openPrograms);
 
-        if (get(activeProgram) === program) {
-            activeProgram.set(null);
-        }
+    if (get(activeProgram) === program) {
+      activeProgram.set(null);
+    }
 
-        set(current.filter((p) => p.name !== program.name));
-    },
+    set(current.filter((p) => p.name !== program.name));
+  }
 };

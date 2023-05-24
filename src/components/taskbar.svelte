@@ -28,7 +28,7 @@
     let startMenuOpen = false;
 </script>
 
-<footer class="relative flex items-center w-full p-2 gap-6 bg-w95-grey shadow-w95 select-none z-50">
+<footer class="relative flex items-center w-full max-w-screen p-2 gap-4 md:gap-6 bg-w95-grey shadow-w95 select-none z-50">
     <!-- Start Menu -->
     <div
         use:focusWithin
@@ -39,12 +39,12 @@
     >
         <!-- Start Menu Button -->
         <button
-            class="flex items-center gap-1 px-2 shadow-w95 whitespace-nowrap active:shadow-w95-inverted"
+            class="flex items-center gap-1 px-0.5 md:px-2 shadow-w95 whitespace-nowrap active:shadow-w95-inverted"
             class:shadow-w95-inverted={startMenuOpen}
             on:click={() => (startMenuOpen = !startMenuOpen)}
         >
             <img src={logo} alt="w icon" class="h-6 rendering-pixelated" />
-            <span class="block h-full overflow-hidden text-ellipsis whitespace-nowrap">Start</span>
+            <span class="h-full overflow-hidden text-ellipsis whitespace-nowrap hidden md:block">Start</span>
         </button>
 
         <!-- Start Menu Content-->
@@ -84,17 +84,17 @@
     </div>
 
     <!-- Open programs -->
-    <div class="flex-1 flex items-center gap-6">
+    <div class="flex-1 flex items-center gap-4 md:gap-6">
         {#each $openPrograms as program}
             <button
-                class="flex items-center gap-1 px-2 shadow-w95 whitespace-nowrap active:shadow-w95-inverted"
+                class="flex items-center gap-1 px-0.5 md:px-2 shadow-w95 whitespace-nowrap active:shadow-w95-inverted"
                 class:shadow-w95-inverted={$activeProgram === program}
                 on:click={() => activeProgram.set(program)}
             >
                 {#if program.icon}
                     <img src={program.icon} alt="{program.name} icon" class="h-6 rendering-pixelated" />
                 {/if}
-                <span class="block h-full overflow-hidden text-ellipsis whitespace-nowrap">{program.name}</span>
+                <span class="h-full overflow-hidden text-ellipsis whitespace-nowrap hidden md:block">{program.name}</span>
             </button>
         {/each}
     </div>

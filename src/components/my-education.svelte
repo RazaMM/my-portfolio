@@ -1,5 +1,5 @@
 <div
-    class="flex flex-col gap-4 items-center border-[3rem] border-my-red bg-my-beige p-2 text-center w-[35rem] min-w-full min-h-full max-w-full"
+    class="flex flex-col gap-4 items-center border-[2rem] md:border-[3rem] border-my-red bg-my-beige p-2 text-center w-[35rem] min-w-full min-h-full max-w-full"
 >
     <div class="flex flex-col my-auto gap-1">
         <span class="text-4xl">University of Guelph</span>

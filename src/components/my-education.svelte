@@ -4,7 +4,7 @@
   <div class="flex flex-col my-auto gap-1">
     <span class="text-4xl">University of Guelph</span>
     <span class="text-2xl">Bachelors of Computing</span>
-    <span class="text-2xl">Computer Science Co-op Major</span>
+    <span class="text-2xl">Computer Science (Co-op) Major</span>
     <span class="text-2xl">2018 - 2023</span>
   </div>
 

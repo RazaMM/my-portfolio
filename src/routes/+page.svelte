@@ -1,6 +1,20 @@
 <script lang="ts">
   import Window from '$components/window.svelte';
-  import { activeProgram, openPrograms, programs } from '$lib/programs';
+  import { activeProgram, openPrograms, programs, type Program } from '$lib/programs';
+
+  let stackingOrder: Program[] = [];
+
+  $: {
+    if (stackingOrder.length < $openPrograms.length) { // New program opened
+      stackingOrder = [...stackingOrder, $openPrograms.at(-1) as Program];
+    } else if (stackingOrder.length > $openPrograms.length) { // Program closed
+      stackingOrder = stackingOrder.filter((program) => $openPrograms.includes(program));
+    }
+
+    if ($activeProgram !== null && $activeProgram !== stackingOrder.at(-1) as Program) { // Active program changed
+      stackingOrder = [...stackingOrder.filter((p) => p.name !== $activeProgram?.name), $activeProgram];
+    }
+  }
 </script>
 
 <svelte:head>
@@ -16,14 +30,17 @@
   {/each}
 </div>
 
-{#each $openPrograms as program (program.name)}
+{#each stackingOrder as program (program.name)}
   <Window
     name={program.name}
     icon={program.icon}
-    active={$activeProgram === program}
+    active={$activeProgram?.name === program.name}
     resizable={program.resizable}
     on:close={() => openPrograms.close(program)}
-    on:mousedown={() => activeProgram.set(program)}
+    on:mousedown={() => {
+      activeProgram.set(program);
+      stackingOrder = [...stackingOrder.filter((p) => p.name !== program.name), program];
+    }}
   >
     <svelte:component this={program.component} />
   </Window>

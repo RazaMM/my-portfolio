@@ -13,7 +13,7 @@
       title: 'Front End Web Developer (Co-op)',
       start: 'September 2019',
       end: 'August 2021',
-      company: 'University of Guelph',
+      company: 'University of Guelph - Communications & Public Affairs',
       location: 'Guelph, Ontario, Canada',
       description: [
         'Led a self-managed project to revamp the University campus map using the Google Maps JavaScript API, resulting in an improved user experience.',
@@ -25,10 +25,10 @@
       title: 'Freelance Web Developer/Designer',
       start: 'April 2022',
       end: 'May 2022',
-      company: 'Adorable Aliens NFT',
+      company: 'Adorable Aliens',
       location: 'Ontario, Canada',
       description: [
-        'Designed and developed a custom website for an NFT project using React, Styled Components and Gatsby.',
+        'Designed and developed a custom website for an art project using React, Styled Components and Gatsby.',
         'Created a responsive design that worked well on both desktop and mobile devices.',
         'Used version control tools such as Git to manage the codebase and collaborate with other developers.'
       ]
@@ -45,17 +45,22 @@
         'Implemented a simple email booking form using EmailJS, allowing users to book appointments with the company through the website.'
       ]
     }
+    /*
+    {
+      title: 'Front End Web Intern',
+      start: 'June 2023',
+      end: 'Current',
+      company: 'University of Guelph - Communications & Marketing',
+      location: 'Guelph, Ontario, Canada',
+      description: [
+        "Led the development of a web component library using StencilJS, allowing for the creation of reusable components across the University's web properties.",
+        'Assisted with the development of a handful of new web pages including a revamped homepage, using GatsbyJS and React.',
+        'Performed regular web maintenance and bug fixing, ensuring a smooth, accessible and error-free experience for users.'
+      ]
+    }*/
   ];
 
   let idx = 0;
-
-  const next = () => {
-    idx = (idx + 1) % experiences.length;
-  };
-
-  const prev = () => {
-    idx = (idx - 1 + experiences.length) % experiences.length;
-  };
 </script>
 
 <div class="flex flex-col p-2 justify-between bg-white w-96 min-w-full min-h-full max-w-full">
@@ -74,7 +79,12 @@
   </div>
 
   <div class="flex w-full justify-between">
-    <button class="text-2xl" on:click={prev}>&lt;-</button>
-    <button class="text-2xl" on:click={next}>-&gt;</button>
+    {#if idx !== 0}
+      <button class="text-2xl user-select-none" on:click={() => idx--}>&lt;-</button>
+    {/if}
+
+    {#if idx !== experiences.length - 1}
+      <button class="text-2xl ml-auto user-select-none" on:click={() => idx++}>-&gt;</button>
+    {/if}
   </div>
 </div>

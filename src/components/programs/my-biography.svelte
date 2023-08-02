@@ -1,6 +1,5 @@
 <script>
   import me from '$img/me.png';
-
   const age = new Date().getFullYear() - 1999;
 </script>
 
@@ -13,7 +12,7 @@
 
   <div class="flex flex-col">
     <a class="text-w95-blue" href="mailto:razammahmood@gmail.com">razammahmood@gmail.com</a>
-    <a class="text-w95-blue" href="https://github.com/RMMahmood">https://github.com/RMMahmood</a>
+    <a class="text-w95-blue" href="https://github.com/RMMahmood">https://github.com/RazaMM</a>
     <a class="text-w95-blue" href="https://www.linkedin.com/in/rmmahmood/">https://www.linkedin.com/in/rmmahmood/</a>
   </div>
 </div>

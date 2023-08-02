@@ -5,13 +5,16 @@
   let stackingOrder: Program[] = [];
 
   $: {
-    if (stackingOrder.length < $openPrograms.length) { // New program opened
+    if (stackingOrder.length < $openPrograms.length) {
+      // New program opened
       stackingOrder = [...stackingOrder, $openPrograms.at(-1) as Program];
-    } else if (stackingOrder.length > $openPrograms.length) { // Program closed
+    } else if (stackingOrder.length > $openPrograms.length) {
+      // Program closed
       stackingOrder = stackingOrder.filter((program) => $openPrograms.includes(program));
     }
 
-    if ($activeProgram !== null && $activeProgram !== stackingOrder.at(-1) as Program) { // Active program changed
+    if ($activeProgram !== null && $activeProgram !== (stackingOrder.at(-1) as Program)) {
+      // Active program changed
       stackingOrder = [...stackingOrder.filter((p) => p.name !== $activeProgram?.name), $activeProgram];
     }
   }

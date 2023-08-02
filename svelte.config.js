@@ -11,7 +11,7 @@ const config = {
       $lib: path.resolve('./src/lib'),
       $icons: path.resolve('./src/icons'),
       $img: path.resolve('./src/img'),
-      $programs: path.resolve('./src/components/programs'),
+      $programs: path.resolve('./src/components/programs')
     }
   },
   preprocess: sveltePreprocess()

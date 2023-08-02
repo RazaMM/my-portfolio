@@ -100,7 +100,7 @@
     // Disable text selection
     document.body.classList.add('select-none');
   };
-  
+
   const resize = (e: MouseEvent) => {
     const resizeX = e.pageX - startResizeX;
     const resizeY = e.pageY - startResizeY;

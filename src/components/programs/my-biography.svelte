@@ -12,7 +12,7 @@
 
   <div class="flex flex-col">
     <a class="text-w95-blue" href="mailto:razammahmood@gmail.com">razammahmood@gmail.com</a>
-    <a class="text-w95-blue" href="https://github.com/RMMahmood">https://github.com/RazaMM</a>
+    <a class="text-w95-blue" href="https://github.com/RazaMM">https://github.com/RazaMM</a>
     <a class="text-w95-blue" href="https://www.linkedin.com/in/rmmahmood/">https://www.linkedin.com/in/rmmahmood/</a>
   </div>
 </div>

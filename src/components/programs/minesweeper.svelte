@@ -1,3 +1,11 @@
+<script context="module">
+  import Icon from '$icons/minesweeper.png';
+
+  export const name = 'Minesweeper';
+  export const icon = Icon;
+  export const resizable = false;
+</script>
+
 <script>
   import SevenSegmentDisplay from '$components/seven-segment-display.svelte';
 

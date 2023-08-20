@@ -1,3 +1,11 @@
+<script context="module">
+  import Icon from '$icons/bio.png';
+
+  export const name = 'My Biography';
+  export const icon = Icon;
+  export const resizable = true;
+</script>
+
 <script>
   import me from '$img/me.png';
   const age = new Date().getFullYear() - 1999;

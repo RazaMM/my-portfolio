@@ -1,3 +1,11 @@
+<script context="module">
+  import Icon from '$icons/book.png';
+
+  export const name = 'My Education';
+  export const icon = Icon;
+  export const resizable = true;
+</script>
+
 <div
   class="flex flex-col gap-4 items-center border-[2rem] md:border-[3rem] border-my-red bg-my-beige p-2 text-center w-[35rem] min-w-full min-h-full max-w-full"
 >

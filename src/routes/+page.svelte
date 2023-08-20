@@ -45,6 +45,6 @@
       stackingOrder = [...stackingOrder.filter((p) => p.name !== program.name), program];
     }}
   >
-    <svelte:component this={program.component} />
+    <svelte:component this={program.default} />
   </Window>
 {/each}

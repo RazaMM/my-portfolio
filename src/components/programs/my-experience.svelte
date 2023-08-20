@@ -1,3 +1,11 @@
+<script context="module">
+  import Icon from '$icons/notepad.png';
+
+  export const name = 'My Experience';
+  export const icon = Icon;
+  export const resizable = true;
+</script>
+
 <script lang="ts">
   type Experience = {
     title: string;

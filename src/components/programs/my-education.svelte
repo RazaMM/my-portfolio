@@ -1,5 +1,5 @@
 <script context="module">
-  import Icon from '$icons/book.png';
+  import Icon from '$img/book.png';
 
   export const name = 'My Education';
   export const icon = Icon;

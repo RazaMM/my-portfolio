@@ -1,5 +1,5 @@
 <script context="module">
-  import Icon from '$icons/minesweeper.png';
+  import Icon from '$img/minesweeper.png';
 
   export const name = 'Minesweeper';
   export const icon = Icon;

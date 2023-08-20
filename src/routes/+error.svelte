@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import Window from '$components/window.svelte';
-  import icon from '../icons/error.png';
+  import icon from '$img/error.png';
 </script>
 
 <Window name={`${$page.status} ${$page.error?.message}`} resizable={false} active={true}>

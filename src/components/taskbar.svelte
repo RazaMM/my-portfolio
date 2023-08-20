@@ -1,7 +1,7 @@
 <script lang="ts">
   import { activeProgram, openPrograms, programs } from '$lib/programs';
   import Clock from './clock.svelte';
-  import logo from '$icons/windows.png';
+  import logo from '$img/windows.png';
   import { focusWithin } from '$lib/focus-within';
 
   /* Start Menu logic */

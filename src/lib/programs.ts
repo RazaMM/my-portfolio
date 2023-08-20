@@ -1,5 +1,5 @@
 import { get, writable } from 'svelte/store';
-import type { SvelteComponent } from 'svelte';
+import type { ComponentType } from 'svelte';
 
 import MyBiographyComponent from '$programs/my-biography.svelte';
 import MyBiographyIcon from '$icons/bio.png';
@@ -15,7 +15,7 @@ import MinesweeperIcon from '$icons/minesweeper.png';
 
 export type Program = {
   name: string;
-  component: any;
+  component: ComponentType;
   resizable?: boolean;
   icon?: string;
 };

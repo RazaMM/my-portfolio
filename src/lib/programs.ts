@@ -1,6 +1,8 @@
 import { get, writable } from 'svelte/store';
 import type { ComponentType } from 'svelte';
 
+// To add a new program, create a new svelte file in src/programs/ with a script module with exports for name, resizable, icon. Then import it here as a namespace and add it to the programs array.
+
 import * as MyBiography from '$programs/my-biography.svelte';
 import * as MyEducation from '$programs/my-education.svelte';
 import * as MyExperience from '$programs/my-experience.svelte';
